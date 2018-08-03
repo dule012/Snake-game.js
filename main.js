@@ -69,6 +69,8 @@ window.addEventListener('keydown', (e) => {
                 }
                 for (i = 1; i < snakeBody.length; i++) {
                     if (snake.style.left == snakeBody[i].style.left && snake.style.top == snakeBody[i].style.top) {
+                        snake.style.backgroundColor = 'green'
+                        snake.style.zIndex = 10
                         clearInterval(interval)
                     }
                 }
@@ -112,6 +114,8 @@ window.addEventListener('keydown', (e) => {
                 }
                 for (i = 1; i < snakeBody.length; i++) {
                     if (snake.style.left == snakeBody[i].style.left && snake.style.top == snakeBody[i].style.top) {
+                        snake.style.backgroundColor = 'green'
+                        snake.style.zIndex = 10
                         clearInterval(interval)
                     }
                 }
@@ -154,6 +158,8 @@ window.addEventListener('keydown', (e) => {
                 }
                 for (i = 1; i < snakeBody.length; i++) {
                     if (snake.style.left == snakeBody[i].style.left && snake.style.top == snakeBody[i].style.top) {
+                        snake.style.backgroundColor = 'green'
+                        snake.style.zIndex = 10
                         clearInterval(interval)
                     }
                 }
@@ -197,6 +203,8 @@ window.addEventListener('keydown', (e) => {
                 }
                 for (i = 1; i < snakeBody.length; i++) {
                     if (snake.style.left == snakeBody[i].style.left && snake.style.top == snakeBody[i].style.top) {
+                        snake.style.backgroundColor = 'green'
+                        snake.style.zIndex = 10
                         clearInterval(interval)
                     }
                 }
@@ -212,4 +220,3 @@ window.addEventListener('keydown', (e) => {
 setInterval(() => { // brise na 10s niz napunjen pozicijama
     snakeBodyArr.splice(snakeLength, snakeBodyArr.length - snakeLength)
 }, 10000)
-console.log(score)
