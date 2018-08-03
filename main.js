@@ -67,6 +67,11 @@ window.addEventListener('keydown', (e) => {
                     snakeLength++
                     score.textContent = 'Your score is: ' + snakeLength
                 }
+                for (i = 1; i < snakeBody.length; i++) {
+                    if (snake.style.left == snakeBody[i].style.left && snake.style.top == snakeBody[i].style.top) {
+                        clearInterval(interval)
+                    }
+                }
             }, 40)
         }
         leftPressed = true
@@ -105,6 +110,11 @@ window.addEventListener('keydown', (e) => {
                     snakeLength++
                     score.textContent = 'Your score is: ' + snakeLength
                 }
+                for (i = 1; i < snakeBody.length; i++) {
+                    if (snake.style.left == snakeBody[i].style.left && snake.style.top == snakeBody[i].style.top) {
+                        clearInterval(interval)
+                    }
+                }
             }, 40)
         }
         leftPressed = false
@@ -141,6 +151,11 @@ window.addEventListener('keydown', (e) => {
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
                     score.textContent = 'Your score is: ' + snakeLength
+                }
+                for (i = 1; i < snakeBody.length; i++) {
+                    if (snake.style.left == snakeBody[i].style.left && snake.style.top == snakeBody[i].style.top) {
+                        clearInterval(interval)
+                    }
                 }
             }, 40)
         }
@@ -179,6 +194,11 @@ window.addEventListener('keydown', (e) => {
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
                     score.textContent = 'Your score is: ' + snakeLength
+                }
+                for (i = 1; i < snakeBody.length; i++) {
+                    if (snake.style.left == snakeBody[i].style.left && snake.style.top == snakeBody[i].style.top) {
+                        clearInterval(interval)
+                    }
                 }
             }, 40)
         }
