@@ -9,14 +9,16 @@ var top1 = 0,
     table = document.querySelector('.table'),
     food = document.querySelector('.food'),
     snakeBody = document.getElementsByClassName('snake'),
+    score = document.querySelector('.score'),
     arrOfWidth = [],
     arrOfHeight = [],
     snakeBodyArr = [],
     i = 0,
     j = 0,
     div,
-    snakeLength = 0
-
+    snakeLength = 0,
+    intervaTwoClicks,
+    counterBetweenTwoClicks = 45
 for (i = 0, j = 0; i < 59; i++) {
     if (i % 2 == 0) {
         arrOfWidth[j] = i
@@ -33,9 +35,14 @@ food.style.left = arrOfWidth[Math.floor(Math.random() * 30)] * 10 + 'px'
 food.style.top = arrOfHeight[Math.floor(Math.random() * 15)] * 10 + 'px'
 
 window.addEventListener('keydown', (e) => {
-    if (e.keyCode == 37 && rightPressed == false) { // LEFT arrow uslov ako se krece desno da ne moze levo nego samo gore i dole
+
+    if (e.keyCode == 37 && rightPressed == false && counterBetweenTwoClicks == 45) { // LEFT arrow uslov ako se krece desno da ne moze levo nego samo gore i dole
         if (leftPressed == false) { // uslov da kada se drzi pritisnuto u jednom trenutku ukopa se u mestu snake jer stalnim clearInterval i davanjem intervala se ukopa 
             clearInterval(interval)
+            counterBetweenTwoClicks = 0
+            setTimeout(() => {
+                counterBetweenTwoClicks = 45
+            }, 45)
             interval = setInterval(() => {
                 snakeBodyArr.unshift({ left: parseInt(snake.style.left), top: parseInt(snake.style.top) })
                 if (parseInt(snake.style.left) <= 0) {
@@ -58,20 +65,22 @@ window.addEventListener('keydown', (e) => {
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
+                    score.textContent = 'Your score is: ' + snakeLength
                 }
             }, 40)
-            setTimeout(() => {
-                console.log(snakeBody)
-            }, 2000)
         }
         leftPressed = true
         topPressed = false
         bottomPressed = false
         rightPressed = false
-    } else if (e.keyCode == 38 && bottomPressed == false) { // TOP arrow
+    } else if (e.keyCode == 38 && bottomPressed == false && counterBetweenTwoClicks == 45) { // TOP arrow
 
         if (topPressed == false) {
             clearInterval(interval)
+            counterBetweenTwoClicks = 0
+            setTimeout(() => {
+                counterBetweenTwoClicks = 45
+            }, 45)
             interval = setInterval(() => {
                 snakeBodyArr.unshift({ left: parseInt(snake.style.left), top: parseInt(snake.style.top) })
                 if (parseInt(snake.style.top) <= 0) {
@@ -94,6 +103,7 @@ window.addEventListener('keydown', (e) => {
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
+                    score.textContent = 'Your score is: ' + snakeLength
                 }
             }, 40)
         }
@@ -101,9 +111,13 @@ window.addEventListener('keydown', (e) => {
         topPressed = true
         bottomPressed = false
         rightPressed = false
-    } else if (e.keyCode == 39 && leftPressed == false) { // RIGHT arrow
+    } else if (e.keyCode == 39 && leftPressed == false && counterBetweenTwoClicks == 45) { // RIGHT arrow
         if (rightPressed == false) {
             clearInterval(interval)
+            counterBetweenTwoClicks = 0
+            setTimeout(() => {
+                counterBetweenTwoClicks = 45
+            }, 45)
             interval = setInterval(() => {
                 snakeBodyArr.unshift({ left: parseInt(snake.style.left), top: parseInt(snake.style.top) })
                 if (parseInt(snake.style.left) + 20 >= table.offsetWidth) {
@@ -120,12 +134,13 @@ window.addEventListener('keydown', (e) => {
                 if (parseInt(snake.style.left) == parseInt(food.style.left) && parseInt(snake.style.top) == parseInt(food.style.top)) {
                     food.style.left = arrOfWidth[Math.floor(Math.random() * 30)] * 10 + 'px'
                     food.style.top = arrOfHeight[Math.floor(Math.random() * 15)] * 10 + 'px'
-                     div = document.createElement('div')
+                    div = document.createElement('div')
                     div.setAttribute('class', 'snake')
                     snake.after(div)
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
+                    score.textContent = 'Your score is: ' + snakeLength
                 }
             }, 40)
         }
@@ -134,9 +149,13 @@ window.addEventListener('keydown', (e) => {
         bottomPressed = false
         rightPressed = true
 
-    } else if (e.keyCode == 40 && topPressed == false) { // BOTTOM arrow
+    } else if (e.keyCode == 40 && topPressed == false && counterBetweenTwoClicks == 45) { // BOTTOM arrow
         if (bottomPressed == false) {
             clearInterval(interval)
+            counterBetweenTwoClicks = 0
+            setTimeout(() => {
+                counterBetweenTwoClicks = 45
+            }, 45)
             interval = setInterval(() => {
                 snakeBodyArr.unshift({ left: parseInt(snake.style.left), top: parseInt(snake.style.top) })
                 if (parseInt(snake.style.top) + 20 >= table.offsetHeight) {
@@ -159,6 +178,7 @@ window.addEventListener('keydown', (e) => {
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
+                    score.textContent = 'Your score is: ' + snakeLength
                 }
             }, 40)
         }
@@ -169,6 +189,7 @@ window.addEventListener('keydown', (e) => {
     }
 
 })
-setInterval(() => {
+setInterval(() => { // brise na 10s niz napunjen pozicijama
     snakeBodyArr.splice(snakeLength, snakeBodyArr.length - snakeLength)
 }, 10000)
+console.log(score)
