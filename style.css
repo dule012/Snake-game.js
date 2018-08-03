@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.table {
+    width: 600px;
+    height: 400px;
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.snake {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    position: absolute;
+}
+.food {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    position: absolute;
+    z-index: -1;
+}
