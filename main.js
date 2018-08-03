@@ -120,11 +120,11 @@ window.addEventListener('keydown', (e) => {
                 if (parseInt(snake.style.left) == parseInt(food.style.left) && parseInt(snake.style.top) == parseInt(food.style.top)) {
                     food.style.left = arrOfWidth[Math.floor(Math.random() * 30)] * 10 + 'px'
                     food.style.top = arrOfHeight[Math.floor(Math.random() * 15)] * 10 + 'px'
-                    div = document.createElement('div')
+                     div = document.createElement('div')
                     div.setAttribute('class', 'snake')
                     snake.after(div)
-                    div.style.left = snakeBodyArr[snakeLength].left
-                    div.style.top = snakeBodyArr[snakeLength].top
+                    div.style.left = snakeBodyArr[snakeLength].left + 'px'
+                    div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
                 }
             }, 40)
