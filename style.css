@@ -34,7 +34,7 @@
     right: 0;
     background-color: black;
     display: none;
-    animation: in 1.2s ease-in-out;
+    animation: in 2s ease-in-out;
 }
 .displayResult {
     width: 400px;
