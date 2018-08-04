@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    background-color: rgba(195, 222, 231, 0.89)
+}
 .table {
     width: 600px;
     height: 400px;
@@ -34,7 +37,7 @@
     right: 0;
     background-color: black;
     display: none;
-    animation: in 2s ease-in-out;
+    animation: in 2.5s ease-in-out;
 }
 .displayResult {
     width: 400px;

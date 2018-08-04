@@ -15,9 +15,13 @@ var top1 = 0,
     newGame = document.querySelector('.newGame'),
     arrOfWidth = [],
     arrOfHeight = [],
+    splicedWidth = [],
+    splicedHeight = [],
     snakeBodyArr = [],
     i = 0,
     j = 0,
+    k = 0,
+    l = 0,
     div,
     snakeLength = 0,
     intervaTwoClicks,
@@ -50,6 +54,13 @@ function Game(e) {
             }, 41)
             interval = setInterval(() => {
                 snakeBodyArr.unshift({ left: parseInt(snake.style.left), top: parseInt(snake.style.top) })
+                for (i = 0; i < snakeBodyArr.length; i++) {
+                    for (j = 0; j < arrOfWidth.length; j++) {
+                        if (snakeBodyArr[i].left == arrOfWidth[j]) {
+
+                        }
+                    }
+                }
                 if (parseInt(snake.style.left) <= 0) {
                     snake.style.left = table.offsetWidth - 20 + 'px'
                     left = table.offsetWidth - 20 // da bih se odmah pojavila u polju ne kockicu ispred polja
@@ -70,6 +81,7 @@ function Game(e) {
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
+                    snakeBodyArr.length = snakeLength + 1
                     score.textContent = 'Your score is: ' + snakeLength
                 }
                 for (i = 1; i < snakeBody.length; i++) {
@@ -119,6 +131,7 @@ function Game(e) {
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
+                    snakeBodyArr.length = snakeLength + 1
                     score.textContent = 'Your score is: ' + snakeLength
                 }
                 for (i = 1; i < snakeBody.length; i++) {
@@ -167,6 +180,7 @@ function Game(e) {
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
+                    snakeBodyArr.length = snakeLength + 1
                     score.textContent = 'Your score is: ' + snakeLength
                 }
                 for (i = 1; i < snakeBody.length; i++) {
@@ -216,6 +230,7 @@ function Game(e) {
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
+                    snakeBodyArr.length = snakeLength + 1
                     score.textContent = 'Your score is: ' + snakeLength
                 }
                 for (i = 1; i < snakeBody.length; i++) {
@@ -276,5 +291,8 @@ function repeatGame() {
 window.addEventListener('keydown', Game)
 
 setInterval(() => { // brise na 10s niz napunjen pozicijama
-    snakeBodyArr.splice(snakeLength, snakeBodyArr.length - snakeLength)
+    snakeBodyArr.splice(snakeLength + 1, snakeBodyArr.length - snakeLength)
+    setTimeout(() => {
+        console.log(snakeBodyArr)
+    }, 1)
 }, 10000)
