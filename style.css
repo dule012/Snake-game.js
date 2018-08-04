@@ -17,6 +17,7 @@
     height: 20px;
     background-color: yellow;
     position: absolute;
+    border-radius: 50%;
 }
 .food {
     width: 20px;
@@ -24,4 +25,49 @@
     background-color: red;
     position: absolute;
     z-index: -1;
+}
+.wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    display: none;
+    animation: in 1.2s ease-in-out;
+}
+.displayResult {
+    width: 400px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.newGame {
+    cursor: pointer;
+    transition: 0.2s linear;
+    font-size: 34px;
+    margin-top: 60px;
+}
+.newGame:hover {
+    transform: translate(0,-3px);
+}
+p{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    z-index: 6;
+}
+span {
+    display: block;
+}
+@keyframes in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
