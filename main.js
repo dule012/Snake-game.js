@@ -32,7 +32,8 @@ var top1 = 0,
     snakeLength = 0,
     intervaTwoClicks,
     counterBetweenTwoClicks = 0,
-    value = 0
+    value = 0,
+    keyCode
 for (i = 0, j = 0; i < 60; i++) {
     if (i % 2 == 0) {
         arrOfWidth[l] = i * 10
@@ -88,6 +89,7 @@ function Game(e) {
             }, value)
             interval = setInterval(() => {
                 snakeBodyArr.unshift({ left: parseInt(snake.style.left), top: parseInt(snake.style.top) })
+                snakeBodyArr.length = snakeLength + 1
 
                 if (parseInt(snake.style.left) <= 0) {
                     snake.style.left = table.offsetWidth - 20 + 'px'
@@ -107,7 +109,6 @@ function Game(e) {
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
-                    snakeBodyArr.length = snakeLength + 1
                     score.textContent = 'Your score is: ' + snakeLength
                     for (i = 0; i < snakeBody.length; i++) {
                         for (j = 0; j < arrOfWidth.length; j++) {
@@ -168,6 +169,7 @@ function Game(e) {
             }, value)
             interval = setInterval(() => {
                 snakeBodyArr.unshift({ left: parseInt(snake.style.left), top: parseInt(snake.style.top) })
+                snakeBodyArr.length = snakeLength + 1
                 if (parseInt(snake.style.top) <= 0) {
                     snake.style.top = table.offsetHeight - 20 + 'px'
                     top1 = table.offsetHeight - 20
@@ -186,7 +188,6 @@ function Game(e) {
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
-                    snakeBodyArr.length = snakeLength + 1
                     score.textContent = 'Your score is: ' + snakeLength
                     for (i = 0; i < snakeBody.length; i++) {
                         for (j = 0; j < arrOfWidth.length; j++) {
@@ -246,6 +247,7 @@ function Game(e) {
             }, value)
             interval = setInterval(() => {
                 snakeBodyArr.unshift({ left: parseInt(snake.style.left), top: parseInt(snake.style.top) })
+                snakeBodyArr.length = snakeLength + 1
                 if (parseInt(snake.style.left) + 20 >= table.offsetWidth) {
                     snake.style.left = 0 + 'px'
                     left = 0
@@ -264,7 +266,6 @@ function Game(e) {
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
-                    snakeBodyArr.length = snakeLength + 1
                     score.textContent = 'Your score is: ' + snakeLength
                     for (i = 0; i < snakeBody.length; i++) {
                         for (j = 0; j < arrOfWidth.length; j++) {
@@ -325,6 +326,7 @@ function Game(e) {
             }, value)
             interval = setInterval(() => {
                 snakeBodyArr.unshift({ left: parseInt(snake.style.left), top: parseInt(snake.style.top) })
+                snakeBodyArr.length = snakeLength + 1
                 if (parseInt(snake.style.top) + 20 >= table.offsetHeight) {
                     snake.style.top = 0 + 'px'
                     top1 = 0
@@ -343,7 +345,6 @@ function Game(e) {
                     div.style.left = snakeBodyArr[snakeLength].left + 'px'
                     div.style.top = snakeBodyArr[snakeLength].top + 'px'
                     snakeLength++
-                    snakeBodyArr.length = snakeLength + 1
                     score.textContent = 'Your score is: ' + snakeLength
                     for (i = 0; i < snakeBody.length; i++) {
                         for (j = 0; j < arrOfWidth.length; j++) {
