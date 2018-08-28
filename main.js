@@ -80,7 +80,7 @@ for (i = 0; i < pOfMode.length; i++) {
 
 function Game(e) {
 
-    if (e.keyCode == 37 && rightPressed == false && counterBetweenTwoClicks == value) { // LEFT arrow uslov ako se krece desno da ne moze levo nego samo gore i dole
+    if (e.keyCode == 37 && rightPressed == false && counterBetweenTwoClicks == value) { // LEFT arrow uslov ako se krece desno da ne moze levo nego samo gore i dole,counterBetweenClicks == value je da ako ide desno i pritiskom istovremeno gore i levo ne promeni smer levo
         if (leftPressed == false) { // uslov da kada se drzi pritisnuto u jednom trenutku ukopa se u mestu snake jer stalnim clearInterval i davanjem intervala se ukopa 
             clearInterval(interval)
             counterBetweenTwoClicks = 0
