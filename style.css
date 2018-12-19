@@ -3,8 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    background-color: rgba(195, 222, 231, 0.89)
+html {
+    background-color: #182432;
 }
 .table {
     width: 600px;
@@ -14,6 +14,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    background-color: #223041;
 }
 .snake {
     width: 20px;
@@ -88,7 +89,8 @@ span {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background-color: lightblue;
+    background-color: #223041;
+    border-radius: 12px;
 }
 
 .mode p {
@@ -96,5 +98,8 @@ span {
     font-size: 30px;
     color: white;
     text-align: center;
+}
+.mode p span {
+    display: inline !important;
     cursor: pointer;
 }
