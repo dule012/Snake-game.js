@@ -17,7 +17,7 @@ var top1 = 0,
     easy = document.querySelector('.easy'),
     medium = document.querySelector('.medium'),
     hard = document.querySelector('.hard'),
-    pOfMode = document.querySelectorAll('.mode p'),
+    pOfMode = document.querySelectorAll('.mode>p>span'),
     body = document.querySelector('body'),
     arrOfWidth = [],
     arrOfHeight = [],
@@ -219,21 +219,3 @@ function repeatGame() {
 }
 
 window.addEventListener('keydown', Game)
-
-
-var a = 0
-function b(x) {
-    x = 20
-    console.log(x)
-}
-b(a)
-console.log(a)
-
-var c = 0
-function d(x) {
-    var n = x
-    n = 20
-    x = n
-}
-d(c)
-console.log(c)
